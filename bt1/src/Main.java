@@ -40,7 +40,7 @@ public class Main {
 
         if (trapezoid1.getPerimeter() > trapezoid2.getPerimeter()) {
             System.out.println("Hình thang 1 có chu vi lớn hơn");
-        } else if (trapezoid1.getArea() < trapezoid2.getArea()) {
+        } else if (trapezoid1.getPerimeter() < trapezoid2.getPerimeter()) {
             System.out.println("Hình thang 2 có chu vi lớn hơn");
         } else {
             System.out.println("Hai hình chu vi bằng nhau");
