@@ -12,7 +12,7 @@ public class Main {
                           {product5.getPriceold(), product5.getPricePro()}};
 
         System.out.println("Tổng sau khuyến mại là: " + sumArr1(arr));
-        System.out.println("Chênh lệch trước và sau sau khuyến mại là: " + (sumArr2(arr)-sumArr1(arr)));
+        System.out.println("Chênh lệch trước và sau sau khuyến mại là: " + sumArr2(arr));
     }
     public static double sumArr1 (double[][] arr) {
         int sum = 0;
@@ -24,7 +24,7 @@ public class Main {
     public static double sumArr2 (double[][] arr) {
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            sum += arr[i][0];
+            sum += arr[i][0]-arr[i][1];
         }
         return sum;
     }
