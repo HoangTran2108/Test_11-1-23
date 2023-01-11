@@ -60,4 +60,14 @@ public class Product {
     public void setPromotion(double promotion) {
         this.promotion = promotion;
     }
+
+    @Override
+    public String toString() {
+        return
+                "mã SP :" + productCode +
+                        ", tên SP :" + name +
+                        ", giá SP :" + price +
+                        ", số lượng :" + number +
+                        ", khuyến mãi :" + promotion + " %";
+    }
 }

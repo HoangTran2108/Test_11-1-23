@@ -1,31 +1,42 @@
 public class Main {
     public static void main(String[] args) {
-        Product product1 = new Product("P1", "Áo",1000,2,10);
-        Product product2 = new Product("P2", "Quần",1500,2,15);
-        Product product3 = new Product("P3", "Giày",2000,1,20);
-        Product product4 = new Product("P4", "khăn",300,1,10);
-        Product product5 = new Product("P5", "mũ",500,1,10);
-        double[][] arr = {{product1.getPriceold(), product1.getPricePro()},
-                          {product2.getPriceold(), product2.getPricePro()},
-                          {product3.getPriceold(), product3.getPricePro()},
-                          {product4.getPriceold(), product4.getPricePro()},
-                          {product5.getPriceold(), product5.getPricePro()}};
+        Product[] products = new Product[5];
+        products[0] = new Product("P1", "Áo",1000,2,10);
+        products[1] = new Product("P2", "Quần",1500,2,15);
+        products[2] = new Product("P3", "Giày",2000,1,20);
+        products[3] = new Product("P4", "khăn",300,1,10);
+        products[4] = new Product("P5", "mũ",500,1,10);
+        System.out.println("Danh sách sản phẩm : ");
+        for (Product i : products
+        ) {
+            System.out.println(i);
+        }
+        System.out.println("Tổng tiền SP chưa có khuyến mãi : " + sum(products));
+        System.out.println("Tổng tiền SP sau khuyến mãi : " + sale(products));
+        System.out.println("Tổng tiền SP chênh lệch sau khuyến mãi : " + sumSale(products));
+    }
 
-        System.out.println("Tổng sau khuyến mại là: " + sumArr1(arr));
-        System.out.println("Chênh lệch trước và sau sau khuyến mại là: " + sumArr2(arr));
-    }
-    public static double sumArr1 (double[][] arr) {
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i][1];
+    public static double sum(Product[] arr) {
+        double sum = 0;
+        for (Product i : arr) {
+            sum += i.getPriceold();
         }
-        return sum;
+        return Math.round(sum);
     }
-    public static double sumArr2 (double[][] arr) {
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i][0]-arr[i][1];
+
+    public static double sale(Product[] arr) {
+        double sum = 0;
+        for (Product i : arr) {
+            sum += i.getPricePro();
         }
-        return sum;
+        return Math.round(sum);
+    }
+
+    public static double sumSale(Product[] arr) {
+        double sum = 0;
+        for (Product i : arr) {
+            sum += i.getPriceold() - i.getPricePro();
+        }
+        return Math.round(sum);
     }
 }
